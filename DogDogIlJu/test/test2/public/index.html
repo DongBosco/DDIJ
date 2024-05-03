@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%REACT_APP_KAKAO_KEY%&libraries=services"
+    ></script>
+
+    <style>
+      .mapDogList {
+        position: absolute;
+        z-index: 999999999;
+        width: 380px;
+        height: 70px;
+        background-color: rgb(255, 254, 251);
+        border-radius: 10px;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .mapDogListSlide {
+        border: 1px solid #000;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+      .dragTarget {
+        display: none;
+        font-size: 35px;
+        color: #ff4848;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99999999;
+      }
+      /* 오버레이 */
+      .wrap {
+        position: absolute;
+        z-index: 9999999;
+        left: 0;
+        bottom: 40px;
+        width: 288px;
+        height: 132px;
+        margin-left: -144px;
+        text-align: left;
+        overflow: hidden;
+        font-size: 12px;
+        font-family: "Malgun Gothic", dotum, "돋움", sans-serif;
+        line-height: 1.5;
+      }
+      .wrap * {
+        padding: 0;
+        margin: 0;
+      }
+      .wrap .info {
+        width: 286px;
+        height: 120px;
+        border-radius: 5px;
+        border-bottom: 2px solid #ccc;
+        border-right: 1px solid #ccc;
+        overflow: hidden;
+        background: #fff;
+      }
+      .wrap .info:nth-child(1) {
+        border: 0;
+        box-shadow: 0px 1px 2px #888;
+      }
+      .info .title {
+        padding: 5px 0 0 10px;
+        height: 30px;
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .info .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #888;
+        width: 17px;
+        height: 17px;
+        background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png");
+      }
+      .info .close:hover {
+        cursor: pointer;
+      }
+      .info .body {
+        position: relative;
+        overflow: hidden;
+      }
+      .info .desc {
+        position: relative;
+        margin: 13px 0 0 90px;
+        height: 75px;
+      }
+      .desc .ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .desc .jibun {
+        font-size: 11px;
+        color: #888;
+        margin-top: -2px;
+      }
+      .info .img {
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        width: 73px;
+        height: 71px;
+        border: 1px solid #ddd;
+        color: #888;
+        overflow: hidden;
+      }
+      .info:after {
+        content: "";
+        position: absolute;
+        margin-left: -12px;
+        left: 50%;
+        bottom: 0;
+        width: 22px;
+        height: 12px;
+        background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png");
+      }
+      .info .link {
+        color: #5085bb;
+      }
+    </style>
+
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
